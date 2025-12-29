@@ -36,16 +36,16 @@ body {
 }
 
 .circle-questions {
-    width: 20px;          /* 아이콘 크기 */
+    width: 20px;          
     height: 22px;
-    display: block;       /* baseline 문제 제거 */
+    display: block;      
 }
 
 .Help-Btn {
-    display: flex;                 /* 변경 */
-    align-items: center;           /* 세로 가운데 */
-    justify-content: center;       /* 가로 가운데 */
-    gap: 8px;                      /* 이미지와 글 간격 */
+    display: flex;                 
+    align-items: center;          
+    justify-content: center;      
+    gap: 8px;                    
 
     margin: 20px auto 0;
     background-color: #96a7b7; 
