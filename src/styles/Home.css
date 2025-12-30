@@ -114,3 +114,55 @@ body {
         width: 440px;
     }
 }
+
+.blur {
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    width: 80%;
+    max-width: 320px;
+
+}
+
+.modal-content input {
+    font-size: 24.5px;  
+}
+
+.Input-Btn {
+    display: block;  
+    margin: 40px auto 0;          
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #0055FF 100%);
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 18px 85px;
+    border: none;
+    border-radius: 16px; 
+    letter-spacing: 0.02em; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 122, 255, 0.2);
+}
+
+.Sea-Title {
+    color: var(--deep-navy);
+    -webkit-text-fill-color: var(--deep-navy); 
+    background: none;
+}

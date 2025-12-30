@@ -18,7 +18,6 @@ function Start() {
 
     return (
         <>
-            {/* 기존 Start 화면 */}
             <main className={`motion ${isLoading ? 'blur' : ''}`}>
                 <img className="motion-img" src="motion.png" />
             </main>

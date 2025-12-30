@@ -5,28 +5,37 @@ import '../styles/Modal.css'
 
 function Home() {
     const navigate = useNavigate()
-    const [showModal, setShowModal] = useState(false)
+
+    const [showHelpModal, setShowHelpModal] = useState(false)
+    const [showInputModal, setShowInputModal] = useState(false)
+    const [sea, setSea] = useState('')
+
+    const handleStartConfirm = () => {
+        setShowInputModal(false)
+        navigate('/start')
+    }
 
     return (
         <>
-            <main className="Main-Title">
+            {/* 메인 화면 */}
+            <main className={`Main-Title ${(showHelpModal || showInputModal) ? 'blur' : ''}`}>
                 <p className="Title">Point Check ✔️</p>
-                <img className="intro" src="intro.png"/>
+                <img className="intro" src="intro.png" />
             </main>
 
-            <div>
+            <div className={(showHelpModal || showInputModal) ? 'blur' : ''}>
                 <button
                     className="Check-Btn"
-                    onClick={() => navigate('/start')}
+                    onClick={() => setShowInputModal(true)}
                 >
                     시작하기
                 </button>
             </div>
 
-            <div>
+            <div className={(showHelpModal || showInputModal) ? 'blur' : ''}>
                 <button
                     className="Help-Btn"
-                    onClick={() => setShowModal(true)}
+                    onClick={() => setShowHelpModal(true)}
                 >
                     <img
                         className="circle-questions"
@@ -37,10 +46,11 @@ function Home() {
                 </button>
             </div>
 
-            {showModal && (
+            {/* 시작 입력 모달 */}
+            {showInputModal && (
                 <div
                     className="modal-overlay"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => setShowInputModal(false)}
                 >
                     <div
                         className="modal-content"
@@ -48,7 +58,44 @@ function Home() {
                     >
                         <button
                             className="modal-close"
-                            onClick={() => setShowModal(false)}
+                            onClick={() => setShowInputModal(false)}
+                        >
+                            ×
+                        </button>
+
+                        <h2 className="Sea-Title">어느 바다인가요?</h2>
+
+                        <input
+                            type="text"
+                            placeholder="예: 해운대 해수욕장"
+                            value={sea}
+                            onChange={(e) => setSea(e.target.value)}
+                        />
+
+                        <button
+                            className="Input-Btn"
+                            disabled={!sea}
+                            onClick={handleStartConfirm}
+                        >
+                            확인
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {/* 도움말 모달 */}
+            {showHelpModal && (
+                <div
+                    className="modal-overlay"
+                    onClick={() => setShowHelpModal(false)}
+                >
+                    <div
+                        className="modal-content"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            className="modal-close"
+                            onClick={() => setShowHelpModal(false)}
                         >
                             ×
                         </button>
@@ -59,8 +106,9 @@ function Home() {
 
                         <div className="modal-description">
                             <p>
-                            이 장치는 사람이 바다에 직접 들어가기 전, 기기를 던져 현재 수위를 파악하고, <br></br>파도의 세기를 분석하여 위험을 알려주는 해양 안전 장치입니다.
-
+                                이 장치는 사람이 바다에 직접 들어가기 전,
+                                기기를 던져 현재 수위를 파악하고 <br />
+                                파도의 세기를 분석하여 위험을 알려주는 해양 안전 장치입니다.
                             </p>
 
                             <ul>
