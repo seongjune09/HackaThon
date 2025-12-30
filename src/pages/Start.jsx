@@ -39,7 +39,12 @@ function Start() {
                 </button>
             </div>
 
-            {isLoading && <Loading message="기기 준비 중..." />}
+            {isLoading && (
+                <Loading
+                    type="prepare"
+                    text="기기를 준비하고 있습니다..."
+                />
+            )}
             
         </>
     )

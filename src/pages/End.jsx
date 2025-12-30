@@ -1,26 +1,26 @@
-import '../styles/Progress.css'
+import { useLocation } from 'react-router-dom'
 
-function Progress() {
+function End() {
+    const { state } = useLocation()
+
+    // state === API 응답 전체
+    const result = state?.ai_result
+
     return (
-        <>
-            <main className="Progress">
-                <img className="Progress-img" src="Progress.png"></img>
-            </main>
+        <div>
+            <h1>{result?.beach_name}</h1>
+            <p>안전 등급: {result?.safety_level}</p>
+            <p>점수: {result?.score}</p>
 
-            <section className="Progress-Content">
-                <p>기기가 입수하기 괜찮은지 판단하고 있습니다.<br></br>잠시만 기다려주세요.</p>
-            </section>
+            <h3>성인</h3>
+            <p>{result?.adult_assessment}</p>
 
-            <div>
-                <button
-                    className="Progress-Btn"
-                    onClick={() => navigate('/end')}
-                >
-                    측정 끝내기
-                </button>
-            </div>
-        </>
+            <h3>어린이·노약자</h3>
+            <p>{result?.child_elderly_assessment}</p>
+
+            <p>{result?.summary}</p>
+        </div>
     )
 }
 
-export default Progress
+export default End

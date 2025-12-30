@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+/* ===== Overlay ===== */
 .Loading-Overlay {
     position: fixed;
     inset: 0;
-    background: rgba(255, 255, 255, 0.8); 
-    backdrop-filter: blur(10px); 
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,41 +13,98 @@
     z-index: 9999;
 }
 
-.square-loader {
-    display: flex;
-    gap: 14px; 
+/* ===== 공통 ===== */
+.loader {
     margin-bottom: 24px;
 }
 
-.sq {
+/* =========================
+   1️⃣ 준비중 로딩 (네모 스캔)
+   ========================= */
+.prepare .square-loader {
+    display: flex;
+    gap: 14px;
+}
+
+.prepare .sq {
     width: 24px;
-    height: 23px;
-    border-radius: 4px; 
+    height: 24px;
+    border-radius: 4px;
     animation: scanSquare 1.2s infinite ease-in-out;
 }
 
-.sq1 { animation-delay: 0s; }
-.sq2 { animation-delay: 0.2s; }
-.sq3 { animation-delay: 0.4s; }
+.prepare .sq1 { animation-delay: 0s; }
+.prepare .sq2 { animation-delay: 0.2s; }
+.prepare .sq3 { animation-delay: 0.4s; }
 
 @keyframes scanSquare {
     0%, 100% {
         transform: scale(1) rotate(0deg);
-        opacity: 0.3; 
+        opacity: 0.3;
     }
     50% {
-        transform: scale(1.3) rotate(90deg); 
-        opacity: 1; 
-        filter: drop-shadow(0 0 8px rgba(0, 122, 255, 0.3)); 
+        transform: scale(1.3) rotate(90deg);
+        opacity: 1;
+        filter: drop-shadow(0 0 8px rgba(0, 122, 255, 0.3));
     }
 }
 
-.Loading-Overlay p {
+/* =========================
+   2️⃣ 측정중 로딩 (파도)
+   ========================= */
+.measure .wave-loader {
+    width: 32px;
+    animation: waveMove 1.2s ease-in-out infinite;
+}
+
+@keyframes waveMove {
+    0% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+}
+
+/* =========================
+   3️⃣ 종료중 로딩 (큐브 회전)
+   ========================= */
+.finish .square-loader {
+    display: flex;
+    gap: 12px;
+}
+
+.finish .sq {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    animation: flipSquare 1.4s infinite ease-in-out;
+}
+
+.finish .sq1 { animation-delay: 0s; }
+.finish .sq2 { animation-delay: 0.15s; }
+.finish .sq3 { animation-delay: 0.3s; }
+
+@keyframes flipSquare {
+    0% { transform: rotateY(0deg); opacity: 0.4; }
+    50% { transform: rotateY(180deg); opacity: 1; }
+    100% { transform: rotateY(360deg); opacity: 0.4; }
+}
+
+/* ===== 텍스트 ===== */
+.loading-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     color: #1D1D1F;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
+    text-align: center;
     animation: pulseText 1.5s infinite;
 }
 
