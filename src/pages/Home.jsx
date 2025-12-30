@@ -23,13 +23,19 @@ function Home() {
                 <img className="intro" src="intro.png" />
             </main>
 
-            <div className={(showHelpModal || showInputModal) ? 'blur' : ''}>
-                <button
-                    className="Check-Btn"
-                    onClick={() => setShowInputModal(true)}
-                >
-                    시작하기
-                </button>
+            <div className={`Check-Wrapper ${(showHelpModal || showInputModal) ? 'blur' : ''}`}>
+                    <button
+                        className="Check-Btn"
+                        onClick={() => setShowInputModal(true)}
+                    >
+                        시작하기
+                    </button>
+
+                    <img
+                        className="Record-icon"
+                        src="Record.png"
+                        alt="record"
+                    />
             </div>
 
             <div className={(showHelpModal || showInputModal) ? 'blur' : ''}>

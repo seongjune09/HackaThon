@@ -5,6 +5,7 @@ function Progress() {
         <>
             <main className="Progress">
                 <img className="Progress-img" src="Progress1.png"></img>
+                <img className="Wave-img" src="Wave.png"></img>
             </main>
 
             <section className="Progress-Content">

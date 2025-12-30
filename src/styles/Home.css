@@ -50,9 +50,29 @@ body {
     border-radius: 60px;
 }
 
+.Check-Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    gap: 14px; 
+}
+
+.Record-icon {
+    width: 36px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.Record-icon:hover {
+    transform: scale(1.1);
+}
+
 .Check-Btn {
-    display: block;  
-    margin: 80px auto 0;          
+    display: block;
+    margin: 0;            
+    margin-left : 50px;
     background: linear-gradient(135deg,#0055FF 100%);
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
@@ -60,11 +80,11 @@ body {
     font-size: 1.1rem;
     padding: 18px 85px;
     border: none;
-    border-radius: 16px; 
-    letter-spacing: 0.05em; 
+    border-radius: 16px;
+    letter-spacing: 0.05em;
     cursor: pointer;
-    position: relative; 
-    overflow: hidden;   
+    position: relative;
+    overflow: hidden;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -159,7 +179,6 @@ body {
     border-radius: 16px;
     width: 80%;
     max-width: 320px;
-
 }
 
 .modal-content input {
