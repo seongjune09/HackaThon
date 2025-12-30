@@ -1,0 +1,20 @@
+.motion-img {
+    width : 340px;
+}
+
+.motion {
+    width: 86.4%;   
+    height : 273px;
+    margin: 90px auto;      
+    border: 3px solid rgba(166, 166, 166, 0.708);
+    border-radius: 4px;
+    padding-top: 1px;
+}
+
+.Start-Content {
+    text-align: center;
+    color : #9bc3de;
+    font-size : 23px;
+    
+
+}

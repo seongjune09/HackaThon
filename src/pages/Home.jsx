@@ -11,6 +11,7 @@ function Home() {
         <>
             <main className="Main-Title">
                 <p className="Title">Point Check ✔️</p>
+                <img className="intro" src="intro.png"/>
             </main>
 
             <div>
@@ -18,7 +19,7 @@ function Home() {
                     className="Check-Btn"
                     onClick={() => navigate('/start')}
                 >
-                    체크하러가기
+                    시작하기
                 </button>
             </div>
 

@@ -3,17 +3,12 @@ import '../styles/Start.css'
 function Start() {
     return (
         <>
-            <main className="Start-Title">
-                <h1>Point Check</h1>
-                <p>체크를 시작할 준비가 되었어요</p>
+            <main className="motion">
+                <img className="motion-img" src="motion.png"></img>
             </main>
 
             <section className="Start-Content">
-                <p>아래 버튼을 눌러 체크를 시작하세요.</p>
-
-                <button className="Start-Btn">
-                    시작하기
-                </button>
+                <p>위 화면처럼 기기를 던져주세요, <br></br>던진 순간부터 측정을 시작합니다.</p>
             </section>
         </>
     )
