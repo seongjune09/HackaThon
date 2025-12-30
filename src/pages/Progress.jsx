@@ -1,17 +1,14 @@
-import '../styles/Start.css'
-import { useNavigate } from 'react-router-dom'
+import '../styles/Progress.css'
 
-const navigate = useNavigate()
-
-function Start() {
+function Progress() {
     return (
         <>
             <main className="motion">
                 <img className="motion-img" src="motion.png"></img>
             </main>
 
-            <section className="Start-Content">
-                <p>시작버튼을 누른 후 <br></br>지시에 따라 기기를 던져주세요!</p>
+            <section className="Progress-Content">
+                <p>위 화면처럼 기기를 던져주세요, <br></br>던진 순간부터 측정을 시작합니다.</p>
             </section>
 
             <div>
@@ -26,4 +23,4 @@ function Start() {
     )
 }
 
-export default Start
+export default Progress

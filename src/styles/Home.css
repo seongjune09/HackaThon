@@ -67,6 +67,11 @@ body {
     box-shadow: 0 10px 20px rgba(0, 122, 255, 0.2);
 }
 
+.Check-Btn:hover {
+    background-color: #F5F5F7;
+    color: var(--deep-navy);
+    border-color: #86868b;
+}
 
 .Help-Btn {
     display: flex;                 
