@@ -32,6 +32,12 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
+.Main-Title .Title span {
+    -webkit-background-clip: unset; 
+    -webkit-text-fill-color: #007AFF; 
+    color: #007AFF; 
+}
+
 .Title {
     font-size: 50px;
     font-weight: 800;
@@ -56,6 +62,14 @@ body {
     justify-content: center;
     margin-top: 80px;
     gap: 14px; 
+}
+
+.Record-Button {
+    background: none;     
+    border: none;      
+    padding: 0;        
+    cursor: pointer;     
+    display: inline-block; 
 }
 
 .Record-icon {
@@ -202,8 +216,30 @@ body {
     box-shadow: 0 10px 20px rgba(0, 122, 255, 0.2);
 }
 
+
 .Sea-Title {
-    color: var(--deep-navy);
-    -webkit-text-fill-color: var(--deep-navy); 
-    background: none;
+    font-size: 14px;     
+    font-weight: 600;
+    margin-top: 20px;  
+    margin-bottom: 8px;
+}
+
+.Sea-Title1 {
+    font-size: 14px;     
+    font-weight: 600;
+    margin-top: 20px;  
+    margin-bottom: 8px;
+    color: #000 !important; 
+    -webkit-text-fill-color: #000 !important; 
+    background: none !important; 
+}
+
+.modal-content input {
+    font-size: 16px; /* 최소 16px 이상 */
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #D2D2D7;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-sizing: border-box;
 }

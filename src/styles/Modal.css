@@ -61,18 +61,10 @@ body {
 
 .modal-content h2 {
     font-size: 2.5rem;
-    color: #9bc3de;
+    color: #0055FF;
     margin-top: 0;
     text-align: center;
 
-}
-
-.modal-title-flood {
-    color: #75A1E7;
-}
-
-.modal-title-stone {
-    color: #808080;
 }
 
 .Modal-img {
@@ -113,7 +105,7 @@ body {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #75A1E7;
+    color: #0055FF;
     font-weight: bold;
     font-size: 1.3rem;
 }

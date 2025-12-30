@@ -7,7 +7,6 @@ function Progress() {
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
 
-    // 실제 측정 시작 (API)
     const handleStart = async () => {
         setIsLoading(true)
 
@@ -36,12 +35,7 @@ function Progress() {
             setIsLoading(false)
         }
     }
-
-    // 🔥 임시 통과 버튼 (센서 미연결용)
-    const handleTempNext = () => {
-        navigate('/progress1')
-    }
-
+    
     return (
         <>
             <main className={`Progress ${isLoading ? 'blur' : ''}`}>
@@ -62,15 +56,6 @@ function Progress() {
                     disabled={isLoading}
                 >
                     측정 시작하기
-                </button>
-
-                {/* 👇 개발용 임시 버튼 */}
-                <button
-                    className="Progress-Btn temp"
-                    onClick={handleTempNext}
-                    style={{ marginTop: '12px', opacity: 0.6 }}
-                >
-                    (임시) 다음 단계로
                 </button>
             </div>
 

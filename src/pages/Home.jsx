@@ -9,33 +9,45 @@ function Home() {
     const [showHelpModal, setShowHelpModal] = useState(false)
     const [showInputModal, setShowInputModal] = useState(false)
     const [sea, setSea] = useState('')
+    const [detailAddress, setDetailAddress] = useState('')
 
+    // 확인 버튼 클릭 시 데이터를 들고 이동
     const handleStartConfirm = () => {
+        if (!sea) return; // 장소 미입력 시 방지
+        
         setShowInputModal(false)
-        navigate('/start')
+        
+        // 중요: navigate 시 두 번째 인자로 state를 넘겨줍니다.
+        // 이렇게 하면 /start 페이지에서 useLocation()으로 이 값을 받을 수 있습니다.
+        navigate('/start', { 
+            state: { 
+                beachName: sea, 
+                address: detailAddress 
+            } 
+        })
     }
 
     return (
         <>
             {/* 메인 화면 */}
             <main className={`Main-Title ${(showHelpModal || showInputModal) ? 'blur' : ''}`}>
-                <p className="Title">Point Check ✔️</p>
+                <p className="Title">
+                    Point <span>Check ✔️</span>
+                </p>
                 <img className="intro" src="intro.png" />
             </main>
 
             <div className={`Check-Wrapper ${(showHelpModal || showInputModal) ? 'blur' : ''}`}>
-                    <button
-                        className="Check-Btn"
-                        onClick={() => setShowInputModal(true)}
-                    >
-                        시작하기
-                    </button>
+                <button
+                    className="Check-Btn"
+                    onClick={() => setShowInputModal(true)}
+                >
+                    시작하기
+                </button>
 
-                    <img
-                        className="Record-icon"
-                        src="Record.png"
-                        alt="record"
-                    />
+                <button onClick={() => navigate('/record')} className="Record-Button">
+                    <img className="Record-icon" src="Record.png" alt="record"/>
+                </button>
             </div>
 
             <div className={(showHelpModal || showInputModal) ? 'blur' : ''}>
@@ -52,7 +64,6 @@ function Home() {
                 </button>
             </div>
 
-            {/* 시작 입력 모달 */}
             {showInputModal && (
                 <div
                     className="modal-overlay"
@@ -69,13 +80,21 @@ function Home() {
                             ×
                         </button>
 
-                        <h2 className="Sea-Title">어느 바다인가요?</h2>
+                        <h2 className="Sea-Title">어느 지역인가요?</h2>
 
                         <input
                             type="text"
                             placeholder="예: 해운대 해수욕장"
                             value={sea}
                             onChange={(e) => setSea(e.target.value)}
+                        />
+
+                        <h2 className="Sea-Title1">상세 주소를 입력해주세요</h2>
+                        <input
+                            type="text"
+                            placeholder="예: 해운대 123번지"
+                            value={detailAddress}
+                            onChange={(e) => setDetailAddress(e.target.value)}
                         />
 
                         <button
@@ -89,7 +108,6 @@ function Home() {
                 </div>
             )}
 
-            {/* 도움말 모달 */}
             {showHelpModal && (
                 <div
                     className="modal-overlay"
@@ -112,9 +130,9 @@ function Home() {
 
                         <div className="modal-description">
                             <p>
-                                이 장치는 사람이 바다에 직접 들어가기 전,
+                                Point Check는 사람이 바다에 직접 들어가기 전,
                                 기기를 던져 현재 수위를 파악하고 <br />
-                                파도의 세기를 분석하여 위험을 알려주는 해양 안전 장치입니다.
+                                AI가 파도의 세기를 분석하여 위험을 알려주는 해양 안전 장치입니다.
                             </p>
 
                             <ul>

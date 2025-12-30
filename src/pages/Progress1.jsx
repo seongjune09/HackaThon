@@ -25,7 +25,6 @@ function Progress() {
             const data = await response.json()
             console.log('측정 종료 결과:', data)
 
-            // ✅ 결과 데이터를 end 페이지로 전달
             navigate('/end', { state: data })
 
         } catch (error) {

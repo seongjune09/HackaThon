@@ -1,0 +1,144 @@
+.Record-Page {
+    padding: 40px 20px;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--soft-white);
+    min-height: 100vh;
+}
+
+.Record-Header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.Record-Header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--deep-navy);
+    margin-bottom: 8px;
+}
+
+.Record-Header p {
+    font-size: 16px;
+    color: #86868B;
+}
+
+.Record-List {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* 카드 스타일 */
+.Record-Card {
+    background: var(--card-white);
+    border-radius: 20px;
+    padding: 20px 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.Record-Card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+.Record-Card:active {
+    transform: scale(0.98);
+}
+
+/* 카드 상단 */
+.Record-Top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* [추가] 장소(해변) 이름 강조 */
+.Record-Beach {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    color: var(--deep-navy);
+    margin: 0;
+}
+
+.Safety-Level {
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+}
+
+.Safety-Level.safe {
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ECC71;
+}
+
+.Safety-Level.warn {
+    background: rgba(241, 196, 15, 0.18);
+    color: #F1C40F;
+}
+
+.Safety-Level.danger {
+    background: rgba(231, 76, 60, 0.15);
+    color: #E74C3C;
+}
+
+/* 카드 하단 */
+.Record-Bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 14px;
+    color: #86868B;
+    margin-top: 4px;
+}
+
+/* [추가] 점수 정보 영역 */
+.Record-Score-Info {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.Score-Label {
+    font-size: 13px;
+    color: #86868B;
+    font-weight: 500;
+}
+
+/* [수정] 점수 파란색 강조 */
+.Record-Score-Blue {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--primary-blue, #007AFF) !important;
+}
+
+.Record-Date {
+    font-size: 13px;
+    color: #AEAEB2;
+    font-style: normal; /* 이탤릭체 제거하여 깔끔하게 */
+}
+
+/* 모바일 대응 */
+@media (max-width: 480px) {
+    .Record-Card {
+        padding: 16px 20px;
+    }
+
+    .Record-Beach {
+        font-size: 18px !important;
+    }
+
+    .Record-Bottom {
+        font-size: 12px;
+    }
+    
+    .Record-Score-Blue {
+        font-size: 16px;
+    }
+}
