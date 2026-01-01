@@ -1,10 +1,11 @@
 import '../styles/Progress.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import Loading from '../Loading/Loading'
 
 function Progress() {
     const navigate = useNavigate()
+    const { state } = useLocation() // ✅ Start에서 넘어온 state
     const [isLoading, setIsLoading] = useState(false)
 
     const handleStart = async () => {
@@ -17,8 +18,9 @@ function Progress() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    beach_name: '해운대해수욕장',
-                    beach_location: '부산광역시 해운대구'
+                    // ✅ 사용자 입력값 사용
+                    beach_name: state?.beachName,
+                    beach_location: state?.address
                 }),
             })
 
@@ -27,7 +29,13 @@ function Progress() {
             }
 
             await response.json()
-            navigate('/progress1')
+
+            // ✅ state 유지한 채 다음 페이지로
+            navigate('/progress1', {
+                state: {
+                    ...state
+                }
+            })
 
         } catch (error) {
             console.error(error)
@@ -35,7 +43,7 @@ function Progress() {
             setIsLoading(false)
         }
     }
-    
+
     return (
         <>
             <main className={`Progress ${isLoading ? 'blur' : ''}`}>

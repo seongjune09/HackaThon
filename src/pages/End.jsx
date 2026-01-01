@@ -6,14 +6,16 @@ function End() {
     const { state } = useLocation()
     const navigate = useNavigate()
 
-    // 데이터가 중첩되어 들어올 경우를 대비한 유연한 추출
+    // ✅ Home에서 입력한 해변 이름
+    const beachFromUser = state?.beachName
+
+    // AI 결과 추출
     const rawData = state?.ai_result
     const result = rawData?.ai_result ? rawData.ai_result : rawData
 
     const [progress, setProgress] = useState(0)
 
     useEffect(() => {
-        // result.score가 존재하는지 확인
         const targetScore = result?.score || 0
         if (targetScore > 0) {
             let start = 0
@@ -30,7 +32,8 @@ function End() {
                 }
                 setProgress(Math.round(start))
             }, stepTime)
-            return () => clearInterval(timer) // 언마운트 시 타이머 정리
+
+            return () => clearInterval(timer)
         }
     }, [result?.score])
 
@@ -61,12 +64,15 @@ function End() {
         <div className="End">
             <header className="End-Header">
                 <p className="End-Sub">분석 결과</p>
-                {/* 데이터 키값이 beach_name 혹은 beach일 경우 모두 대응 */}
-                <h1 className="End-Title">{result.beach_name || result.beach || "알 수 없는 해변"}</h1>
+
+                {/* ✅ 사용자 입력값을 최우선으로 표시 */}
+                <h1 className="End-Title">
+                    {beachFromUser || result.beach_name || result.beach || "알 수 없는 해변"}
+                </h1>
             </header>
 
             <section className="Result-Card">
-                <svg height={radius*2} width={radius*2} className="Score-Circle">
+                <svg height={radius * 2} width={radius * 2} className="Score-Circle">
                     <circle
                         stroke="#eee"
                         fill="transparent"
@@ -100,7 +106,6 @@ function End() {
                     </text>
                 </svg>
 
-                {/* safety_level 혹은 safety 대응 */}
                 <div className={`Safety-Level ${result.safety_level || result.safety}`}>
                     {result.safety_level || result.safety}
                 </div>
